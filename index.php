@@ -27,7 +27,7 @@ elseif($input['event'] == "message") {
   // here goes the data to send message back to the user
   $data['auth_token'] = "461774e3797357b9-6f437c64f8d7eb26-ba3740a1a9814035";
   $data['receiver'] = $sender_id;
-  $data['text'] = "The message to send to user";
+  $data['text'] = "привіт!";
   $data['type'] = 'text';
 
   //here goes the curl to send data to user
