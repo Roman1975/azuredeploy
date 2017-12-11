@@ -8,6 +8,10 @@ _Full list of covered issues_:
 * providers
 * log scope
 * how to read your NetCore App logs on Azure
+* work with migrations in EF Core 2.0 and Sqlite
+* move EF Migrations to a separate assembly (can use differenet assembly for different Environment or Database provider)
+* seeding database
+* exploring Azure deployment slots with database migrations and Sqlite
 
 
 ### How to read .NetCore app logs on Azure
