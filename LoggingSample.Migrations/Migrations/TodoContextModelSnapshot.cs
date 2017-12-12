@@ -4,8 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace LoggingSample.Migrations.Migrations
@@ -29,8 +27,6 @@ namespace LoggingSample.Migrations.Migrations
                     b.Property<DateTime>("DateStart");
 
                     b.Property<bool>("IsCompleted");
-
-                    b.Property<bool>("IsDelayed");
 
                     b.Property<string>("Notes")
                         .HasMaxLength(256);
