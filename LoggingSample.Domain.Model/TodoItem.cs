@@ -11,6 +11,7 @@ namespace LoggingSample.Domain.Model
         [Key]
         public int Id { get; set; }
         public bool IsCompleted { get; set; }
+        public bool IsDelayed { get; set; }
         
         [Display(Name = "Title")]
         [StringLength(50, MinimumLength=5, ErrorMessage = "Title cannot be longer than 50 characters.")]
