@@ -16,6 +16,9 @@ namespace LoggingSample.Domain.Model
         [StringLength(50, MinimumLength=5, ErrorMessage = "Title cannot be longer than 50 characters.")]
         public string Title { get; set; }
         
+        [Display(Name = "Notes")]
+        [StringLength(256, ErrorMessage = "Notes cannot be longer than 256 characters.")]
+        public string Notes { get; set; }
         
         public DateTime DateStart { get; set; }
         
