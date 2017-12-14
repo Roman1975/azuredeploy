@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LoggingSample.Domain.Model\LoggingSample.Domain.Model.csproj" />
+    <ProjectReference Include="..\LoggingSample.Domain\LoggingSample.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
