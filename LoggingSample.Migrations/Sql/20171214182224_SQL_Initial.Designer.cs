@@ -8,17 +8,18 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
-namespace LoggingSample.Migrations.Migrations
+namespace LoggingSample.Migrations.Sql
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20171212142723_AddDelayed")]
-    partial class AddDelayed
+    [Migration("20171214182224_SQL_Initial")]
+    partial class SQL_Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.1-rtm-125");
+                .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("LoggingSample.Domain.Model.TodoItem", b =>
                 {

@@ -1,4 +1,4 @@
-dotnet ef migrations add AnotherMigration -p ../LoggingSample.Migrations
+dotnet ef migrations add AnotherMigration -p ../LoggingSample.Migrations --output-dir Sql
 dotnet ef migrations remove -p ../LoggingSample.Migrations
 dotnet ef migrations list -p ../LoggingSample.Migrations
 

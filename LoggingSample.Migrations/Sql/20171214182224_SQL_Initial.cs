@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using System;
 using System.Collections.Generic;
 
-namespace LoggingSample.Migrations.Migrations
+namespace LoggingSample.Migrations.Sql
 {
-    public partial class Initial : Migration
+    public partial class SQL_Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,10 +14,12 @@ namespace LoggingSample.Migrations.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     DateFinish = table.Column<DateTime>(nullable: true),
                     DateStart = table.Column<DateTime>(nullable: false),
                     IsCompleted = table.Column<bool>(nullable: false),
+                    IsDelayed = table.Column<bool>(nullable: false),
+                    Notes = table.Column<string>(maxLength: 256, nullable: true),
                     Title = table.Column<string>(maxLength: 50, nullable: true)
                 },
                 constraints: table =>
