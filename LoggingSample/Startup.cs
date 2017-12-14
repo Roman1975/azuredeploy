@@ -34,10 +34,11 @@ namespace LoggingSample
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
 
-            var connectionString = Configuration["ConnectionStrings:Sqlite"];
-            services.AddEntityFrameworkSqlite()
+            var connectionString = Configuration["ConnectionStrings:SQLAzure"];
+            
+            services.AddEntityFrameworkSqlServer()
                 .AddDbContextPool<TodoContext>(     // high performance https://docs.microsoft.com/en-us/ef/core/what-is-new/
-                    optionsAction => optionsAction.UseSqlite(connectionString,
+                    optionsAction => optionsAction.UseSqlServer(connectionString,
                     x => x.MigrationsAssembly("LoggingSample.Migrations"))); //https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations/projects
             //
             services.AddSingleton<IUnitOfWork, UnitOfWork>();

@@ -1,6 +1,7 @@
+using System.IO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-
+using Microsoft.Extensions.Configuration;
 
 namespace LoggingSample.Domain
 {
@@ -11,10 +12,16 @@ namespace LoggingSample.Domain
     {
         public TodoContext CreateDbContext(string[] args)
         {
-            var connectionString = @"Data Source=App_data/LoggingSample.db;";
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+            
+            var connectionString = configuration["ConnectionStrings:SQLAzure"];
 
             var optionsBuilder = new DbContextOptionsBuilder<TodoContext>();
-            optionsBuilder.UseSqlite(connectionString, b=>b.MigrationsAssembly("LoggingSample.Migrations"));
+            optionsBuilder.UseSqlServer(connectionString, 
+                b=>b.MigrationsAssembly("LoggingSample.Migrations"));
 
             return new TodoContext(optionsBuilder.Options);
         }
