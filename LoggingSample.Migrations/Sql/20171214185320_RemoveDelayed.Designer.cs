@@ -11,7 +11,7 @@ using System;
 namespace LoggingSample.Migrations.Sql
 {
     [DbContext(typeof(TodoContext))]
-    [Migration("20171214182645_RemoveDelayed")]
+    [Migration("20171214185320_RemoveDelayed")]
     partial class RemoveDelayed
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
