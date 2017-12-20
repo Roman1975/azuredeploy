@@ -1,0 +1,41 @@
+1. Prepare source codes
+    - create file ".deployment" in root folder
+    - in [config] section setup main project project = LoggingSample/LoggingSample.csproj
+    - check-in changes
+
+2. create web app with free plan
+3. create connection string specific for slot = production.db, check "slot specific" = false
+4. manually created app_data folder
+5. setup deployment multi project solution from github
+6. wait until deployed, test solution, add 5 records
+7. disconnect "deployment options"
+
+8. change model, commit changes
+
+9. scale up plan to S2
+10. create deployment slot "staging"
+11. navigate to the "staging" slot
+12. manually created app_data folder
+13. create connection string specific for slot = staging.db, check "slot specific" = false
+14. setup deployment multi project solution from github
+15. wait until deployed, test solution, add 1 record
+
+16. swap slots, source = staging, destination = production, shows warning - connection string will be cnahged
+17. exploring results on "production" slot
+    - database moved as App_data moved with app
+    - app version moved from staging
+    - deployment options not changed - as it was
+18. exploring results on staging slot
+    - database moved from production as App_data moved with app
+    - version moved from production
+    - deployment options not changed - but no deployments found, can sync
+    
+
+sumup:
+- sqlite is not an option to test database migration until it will be placed on shared resource for every slot, like blob storage
+- swap works good, easily can revert changes, but how it will works with SQL database? I think there will be need to manually revert migrations
+
+next things to do:
+- change database provider, use - sql server
+- add migrations for sql as another migrations set in Migrations assembly
+- publish with supporting sql azure and test again
